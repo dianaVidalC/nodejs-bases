@@ -1,4 +1,6 @@
-const { buildLogger } = require('./plugins');
+// const { buildLogger } = require('./plugins');
+
+import { buildLogger } from "./plugins/logger.plugin";
 
 // const { emailTemplate } = require('./js-foundation/01-template');
 // require('./js-foundation/02-destructuring');
@@ -6,15 +8,16 @@ const { buildLogger } = require('./plugins');
 // const { getUserById } = require('./js-foundation/04-arrow');
 // const { buildMakePerson } = require('./js-foundation/05-factory')
 // const getPokemonById = require('./js-foundation/06-promises');
-// getPokemonById(4)
-//   .then( ( pokemon ) => console.log({ pokemon }) )
-//   .catch( ( err ) => console.log( err ) )
-//   .finally( () => console.log('Finalmente') );
+import { getPokemonById } from "./js-foundation/06-promises";
+getPokemonById(4)   
+  .then( ( pokemon ) => console.log({ pokemon }) )
+  .catch( ( err ) => console.log( err ) )
+  .finally( () => console.log('Finalmente') );
 
 const logger = buildLogger('app');
 
 logger.log('Iniciando la aplicación');
-logger.error('Esto es un error');
+// logger.error('Esto es un error');
 
 // token de acceso
 // Publicas
@@ -28,8 +31,6 @@ logger.error('Esto es un error');
 // const john = makePerson( obj );
 
 // console.log({ john });
-
-
 
 
 

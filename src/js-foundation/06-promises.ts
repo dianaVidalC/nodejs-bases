@@ -1,9 +1,10 @@
-const { http } = require('../plugins');
+// const { http } = require('../plugins');
+import { httpClient as httpClient } from '../plugins';
 
-const getPokemonById = async( id ) => {
+export const getPokemonById = async( id: string | number ):Promise<string> => {
   const url = `https://pokeapi.co/api/v2/pokemon/${ id }`;
 
-  const pokemon = await http.get( url );
+  const pokemon = await httpClient.get( url );
 
   // const resp = await fetch( url );
   // const pokemon = await resp.json();
@@ -19,8 +20,3 @@ const getPokemonById = async( id ) => {
   //   .then( ( pokemon ) => pokemon.name );
 
 }
-
-
-
-
-module.exports = getPokemonById;

@@ -1,5 +1,6 @@
-const winston = require('winston');
-const { combine, timestamp, json } = winston.format;
+import winston, { format } from "winston";
+
+const { combine, timestamp, json } = format;
 
 const logger = winston.createLogger({
   level: 'info',
@@ -27,12 +28,12 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-module.exports = function buildLogger(service) {
+export const  buildLogger = (service: string) => {
     return {
-        log: (message) => {
+        log: (message: string) => {
             logger.info({ service, message });
         },
-        error: (message) => {
+        error: (message: string) => {
             logger.error({ service, message,  });
         }
     };
